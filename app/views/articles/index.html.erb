@@ -1,21 +1,46 @@
 <h1>Listing articles</h1>
 
 <%= link_to 'New article', new_article_path %>
+
  
-<table class="table table-striped">
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th colspan="3"></th>
-  </tr>
- 
-  <% @articles.each do |article| %>
-    <tr id="article-<%= article.id %>">
-      <td><%= link_to article.title, article_path(article) %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Edit', edit_article_path(article), class: 'btn btn-default btn-xs'  %></td>
-      <td><%= link_to 'Delete', article_path(article), method: :delete, class: 'btn btn-xs btn-danger' %></td>
-    </tr>
-  <% end %>
-</table>
+<% @articles.each do |article| %>
+<!--<tr id="article-<%= article.id %>">-->
+  <!--<td><%= link_to article.title, article_path(article) %></td>-->
+  <!--<td><%= article.text %></td>-->
+  <!--<td><%= link_to 'Edit', edit_article_path(article), class: 'btn btn-default btn-xs'  %></td>-->
+  <!--<td><%= link_to 'Delete', article_path(article), method: :delete, class: 'btn btn-xs btn-danger' %></td>-->
+<!--</tr>-->
+
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row"><%= link_to article.title, article_path(article) %></div>
+      <div class="row"><%= article.text %></div>
+    </div>
+   <div class="col-md-2">
+     <div class="row"><%= l(article.created_at, format: :hui) %></div>
+     <div class="row">
+       <%= link_to edit_article_path(article) do  %>
+        <span class="glyphicon glyphicon-pencil"></span>
+       <% end %>
+       <%= link_to article_path(article), method: :delete do %>
+       <span class="glyphicon glyphicon-remove"></span>
+       <% end %>
+       <br />
+
+       <%= link_to "/like/#{article.id}", method: :post do %>
+           <span class="glyphicon glyphicon-thumbs-up"></span>
+       <% end %>
+       <%= link_to 'article_dislikes_path' do %>
+           <span class="glyphicon glyphicon-thumbs-down"></span>
+       <% end %>
+
+       Likes : <%= article.likes.count %>
+
+
+
+     </div>
+
+   </div>
+  </div>
+<% end %>
 
