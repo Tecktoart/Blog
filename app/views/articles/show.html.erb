@@ -8,5 +8,15 @@
   <%= @article.text %>
 </p>
 
+<%= link_to "/like/#{@article.id}", method: :post do %>
+    <span class="glyphicon glyphicon-thumbs-up"></span>
+<% end %>
+
+<%= link_to 'article_dislikes_path' do %>
+    <span class="glyphicon glyphicon-thumbs-down"></span>
+<% end %>
+<br />
+Likes : <%= @article.likes.count %>
+
 <%= link_to 'Back', articles_path %> |
 <%= link_to 'Edit', edit_article_path(@article) %>
