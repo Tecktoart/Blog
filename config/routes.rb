@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :articles
   resources :likes, only: [:create]
   post 'like/:id', controller: :likes, action: :create
+  resources :comments
 
   root 'welcome#index'
 end

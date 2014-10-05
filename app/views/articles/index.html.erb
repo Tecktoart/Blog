@@ -1,6 +1,16 @@
-<h1>Listing articles</h1>
 
-<%= link_to 'New article', new_article_path %>
+<h1>
+  <span class="label label-primary" style="font-size: 50px">Listing articles</span>
+</h1>
+<br />
+
+<ul class="nav nav-pills">
+  <li class="active"><%= link_to 'All articles', articles_path %></li>
+  <li class="active"><%= link_to 'My articles', articles_path %></li>
+  <li class="active"><%= link_to 'New article', new_article_path %></li>
+
+</ul>
+
 <br />
 <br />
 <div class="articles">

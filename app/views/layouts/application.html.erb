@@ -13,11 +13,13 @@
     <%= yield %>
   </div>
   <div class="col-md-2">
+    <div class="jumbotron">
     <% if user_signed_in? %>
-        Добро пожаловать, <%= current_user.email %>!!!!
-        <%= link_to 'Выход', destroy_user_session_path, method: :delete %>
-
+        Welcome, <%= current_user.email %>!!!!
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
     <% end %>
+   </div>
+
   </div>
 </div>
 </body>
