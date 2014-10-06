@@ -6,7 +6,7 @@
 
 <ul class="nav nav-pills">
   <li class="active"><%= link_to 'All articles', articles_path %></li>
-  <li class="active"><%= link_to 'My articles', articles_path %></li>
+  <li class="active"><%= link_to 'My articles', articles_path(user_id: current_user.id) %></li>
   <li class="active"><%= link_to 'New article', new_article_path %></li>
 
 </ul>

@@ -8,17 +8,24 @@
 </head>
 <body>
 
-<div class="container-fluid">
+<div class="container">
   <div class="col-md-10">
     <%= yield %>
   </div>
   <div class="col-md-2">
-    <div class="jumbotron">
+
+
     <% if user_signed_in? %>
         Welcome, <%= current_user.email %>!!!!
         <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+    <% else %>
+
+        <%= link_to 'Sign in', new_user_session_path, class: 'btn btn-default' %>
+        <%= link_to 'Sign up', new_user_registration_path, class: 'btn btn-primary btn-small' %>
+
     <% end %>
-   </div>
+
+
 
   </div>
 </div>
