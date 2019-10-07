@@ -22,7 +22,7 @@
       <div class="row"><%= article.text %></div>
     </div>
    <div class="col-md-2">
-     <div class="row"><%= l(article.created_at, format: :hui) %></div>
+     <div class="row"><%= l(article.created_at, format: :colons) %></div>
      <div class="row">
        <%= link_to edit_article_path(article) do  %>
         <span class="glyphicon glyphicon-pencil"></span>
